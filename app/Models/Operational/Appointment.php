@@ -29,4 +29,22 @@ class Appointment extends Model
         'updated_at',
         'deleted_at'
     ];
+
+    public function doctor(){
+        // tree parameter -> (path, foreign key, primary key from has many )
+        return $this->belongsTo('App\Models\Operational\Doctor','doctor_id', 'id');
+    }
+    public function consultation(){
+        // tree parameter -> (path, foreign key, primary key from has many )
+        return $this->belongsTo('App\Models\MasterData\Consultation','consultation_id', 'id');
+    }
+    public function user(){
+        // tree parameter -> (path, foreign key, primary key from has many )
+        return $this->belongsTo('App\Models\User','user_id', 'id');
+    }
+
+    public function transaction(){
+        // two parameter -> path, foreign key 
+        return $this->hasOne('App\Models\Operational\Transaction','appointment_id');
+    }
 }

@@ -27,4 +27,14 @@ class Doctor extends Model
         'updated_at',
         'deleted_at'
     ];
+
+    public function specialist(){
+        // tree parameter -> (path, foreign key, primary key from has many )
+        return $this->belongsTo('App\Models\MasterData\Specialist','specialist_id', 'id');
+    }
+
+    public function appointment(){
+        // two parameter -> path, foreign key 
+        return $this->hasMany('App\Models\Operational\Appointment','doctor_id');
+    }
 }
