@@ -15,7 +15,7 @@ class StoreSpecialistRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,10 +27,10 @@ class StoreSpecialistRequest extends FormRequest
     {
         return [
             'name' => [
-                'required','string','max:255',
+                'required','string','max:255','unique:specialist',
             ],
             'price' => [
-                'required','integer',
+                'required','string','max:255',
             ],
         ];
     }
