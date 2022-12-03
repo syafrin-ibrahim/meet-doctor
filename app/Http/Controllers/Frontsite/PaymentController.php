@@ -63,7 +63,7 @@ class PaymentController extends Controller
      */
     public function show($id)
     {
-        return abort(404);
+        return view('pages.frontsite.success.payment-success');
     }
 
     /**
