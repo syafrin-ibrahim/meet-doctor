@@ -7,10 +7,11 @@
     @stack('after-style')
 </head>
 <body>
-        @yield('content')
-    @stack('before-script')
+        @include('sweetalert::alert')
+        @yield('content')   
+        @stack('before-script')
         @include('includes.frontsite.script')
-    @stack('after-script')
+        @stack('after-script')
    
 </body>
 </html>
